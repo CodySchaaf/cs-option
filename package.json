@@ -1,17 +1,20 @@
 {
   "name": "cs-option",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TypeScript Option Implementation",
   "scripts": {
     "build": "tsc",
     "lint": "tslint ./src/**/*.ts -t verbose"
   },
-  "keywords": ["option","optional", "typescript"],
+  "keywords": [
+    "option",
+    "optional",
+    "typescript"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "typescript": "~2.3.2",
-
     "tslint": "^3.15.1"
   },
   "repository": {}
