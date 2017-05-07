@@ -1,6 +1,6 @@
 {
   "name": "cs-option",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "TypeScript Option Implementation",
   "scripts": {
     "build": "tsc",
@@ -17,5 +17,6 @@
     "typescript": "~2.3.2",
     "tslint": "^3.15.1"
   },
+  "main": "src/Option.js",
   "repository": {}
 }

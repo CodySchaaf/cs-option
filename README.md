@@ -1,4 +1,4 @@
-# Option - ([Tutorial](http://blog.codyschaaf.com/typescript/options/2017/05/07/exploring-options-in-javascript-typescript.html)) 
+# Fully Typed Option Library - ([Tutorial](http://blog.codyschaaf.com/typescript/options/2017/05/07/exploring-options-in-javascript-typescript.html)) 
 
 A TypeScript implementation of Option. Based on Scala's Option library.
  
@@ -8,8 +8,11 @@ and ensure the method implementation stays compatible with both possibilities.
 
 Options keep with the iterable api, meaning you can duck type the with arrays, streams, ect.
 
-Options also ensure a more functional approach to programming, and help keep code cleaner and easier to read. 
-   
+Options also ensure a more functional approach to programming, and help keep code cleaner and easier to read.
+ 
+With TypeScript this becomes awesome, because youa re able to ensure that all null cases are handled at compile 
+time. 
+    
 # Bower and Npm
 
 npm install `cs-option`
