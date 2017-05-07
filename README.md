@@ -1,4 +1,4 @@
-#Option
+#Option - ([Tutorial](http://blog.codyschaaf.com/typescript/options/2017/05/07/exploring-options-in-javascript-typescript.html)) 
 
 A TypeScript implementation of Option. Based on Scala's Option library.
  
@@ -7,6 +7,8 @@ By defining optional method parameters as options you can keep a more consistent
 and ensure the method implementation stays compatible with both possibilities.
 
 Options keep with the iterable api, meaning you can duck type the with arrays, streams, ect.
+
+Options also ensure a more functional approach to programming, and help keep code cleaner and easier to read. 
    
 #Bower and Npm
 
@@ -16,7 +18,8 @@ bower install `cs-option`
 #How to use:
 
 There are both helper static members and instance members listed below. Also for more information
-see my blog post on the subject.
+see my [blog](http://blog.codyschaaf.com/typescript/options/2017/05/07/exploring-options-in-javascript-typescript.html)
+post on the subject, where we go over example uses. 
 
 ##Static Members:
 

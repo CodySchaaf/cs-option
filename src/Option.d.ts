@@ -16,6 +16,7 @@ export declare class Option<T> {
     static fromNullable<T>(possiblyUndefinedOrNullValue: T | undefined): Option<T>;
     static of<T>(value: T): Option<T>;
     static find<T>(arr: T[], fnOrMatch?: LodashMatches<T>): Option<T>;
+    static pop<T>(arr: T[]): Option<T>;
     static absent<T>(): Option<T>;
     private constructor(_present?, _value?);
     isPresent(): boolean;
