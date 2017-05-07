@@ -10,7 +10,6 @@ class TypeGuards {
   }
 }
 
-
 export class Option<T> {
   /**
    * All calls to absent now return the same None object
@@ -53,6 +52,10 @@ export class Option<T> {
         throw 'Install lodash to use find without a function';
       }
     }
+  }
+
+  static pop<T>(arr: T[]): Option<T> {
+    return Option.fromNullable(arr.pop());
   }
 
   static absent<T>(): Option<T> {
