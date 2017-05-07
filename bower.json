@@ -1,0 +1,22 @@
+{
+  "name": "cs-option",
+  "version": "1.0.0",
+  "homepage": "https://github.com/CodySchaaf/CsOption",
+  "authors": [
+    "CodySchaaf <codyjschaaf@sigfig.com>"
+  ],
+  "description": "A TypeScript Option Implementation",
+  "main": "src/Option.js",
+  "moduleType": [
+    "CommonJS"
+  ],
+  "keywords": [
+    "TypeScript",
+    "Option"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules"
+  ]
+}
