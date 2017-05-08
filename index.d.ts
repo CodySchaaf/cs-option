@@ -3,6 +3,6 @@
  * @description
  * Entry point for all public APIs of the core package.
  */
-import {Option} from './src/Option';
+import Option = require('./src/Option');
 
-export default Option;
+export = Option;

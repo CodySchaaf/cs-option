@@ -1,4 +1,4 @@
-export type LodashMatches<T> = ((item: T) => boolean) | ({[K in keyof T]?: T[K]});
+import {LodashMatches} from './LodashMatches';
 
 class TypeGuards {
   static isFn(fn: any): fn is Function {
@@ -10,7 +10,7 @@ class TypeGuards {
   }
 }
 
-export default class Option<T> {
+class Option<T> {
   /**
    * All calls to absent now return the same None object
    * this prevents an infinite digest when comparing none to none
@@ -214,3 +214,5 @@ export default class Option<T> {
     return q.resolve(Option.absent<V>());
   }
 }
+
+export = Option;

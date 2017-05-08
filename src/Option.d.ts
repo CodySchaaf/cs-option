@@ -1,7 +1,5 @@
-export declare type LodashMatches<T> = ((item: T) => boolean) | ({
-    [K in keyof T]?: T[K];
-});
-export default class Option<T> {
+import { LodashMatches } from './LodashMatches';
+declare class Option<T> {
     private readonly _present;
     private readonly _value;
     /**
@@ -79,3 +77,4 @@ export default class Option<T> {
     flatMap<V>(transformer: (value: T) => Option<V>): Option<V>;
     promiseTransform<V>(q: PromiseConstructor, transformer: (value: T) => Promise<V>): Promise<Option<V>>;
 }
+export = Option;
