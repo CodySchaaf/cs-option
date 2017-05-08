@@ -10,7 +10,7 @@ class TypeGuards {
   }
 }
 
-export class Option<T> {
+export default class Option<T> {
   /**
    * All calls to absent now return the same None object
    * this prevents an infinite digest when comparing none to none
