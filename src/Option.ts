@@ -55,7 +55,12 @@ class Option<T> {
   }
 
   static pop<T>(arr: T[]): Option<T> {
+    Option.get(class {public name: string; }, 'name');
     return Option.fromNullable(arr.pop());
+  }
+
+  static get<T extends Object, K extends keyof T>(obj: T, key: K): Option<T[K]> {
+    return Option.fromNullable(obj[key]);
   }
 
   static absent<T>(): Option<T> {

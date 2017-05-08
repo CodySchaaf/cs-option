@@ -15,6 +15,7 @@ declare class Option<T> {
     static of<T>(value: T): Option<T>;
     static find<T>(arr: T[], fnOrMatch?: LodashMatches<T>): Option<T>;
     static pop<T>(arr: T[]): Option<T>;
+    static get<T extends Object, K extends keyof T>(obj: T, key: K): Option<T[K]>;
     static absent<T>(): Option<T>;
     private constructor(_present?, _value?);
     isPresent(): boolean;

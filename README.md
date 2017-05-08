@@ -44,7 +44,7 @@ Option.isNully([]) // => false
 
 #### `fromNullable<T>(possiblyUndefinedOrNullValue: T | undefined): Option<T>`
 
-Used to create an option out of any value, even possibly null values. Use full when calling
+Used to create an option out of any value, even possibly null values. Useful when calling
 an untrusted api like array.pop since it could return a value or undefined. 
  
 ```js
@@ -53,7 +53,7 @@ Option.fromNullable(possiblyACat) // => Option[possiblyACat]
 
 #### `of<T>(value: T): Option<T>`
 
-Makes an option out of a concrete value. Use full when calling an api that expects an option,
+Makes an option out of a concrete value. Useful when calling an api that expects an option,
 but you have a value. 
 
 ```js
@@ -172,7 +172,7 @@ Option.fromNullable(null).orCall(() => {throw "something"}) // throw "something"
 
 If the option is nonempty return it, otherwise return the result of evaluating an alternative expression.
 
-Use full when you need a default but the method api you are passing it to needs an option. 
+Useful when you need a default but the method api you are passing it to needs an option. 
  
 ```js
 
@@ -186,7 +186,7 @@ Option.fromNullable(null).orElse(Option.fromNullable(undefined)) // => Option[un
 Returns this $option if it is nonempty and applying the predicate $p to
 this $option's value returns true. Otherwise, return $none.
 
-Use full when you have an object that needs to be filtered on a value.
+Useful when you have an object that needs to be filtered on a value.
 
 ```js
 
