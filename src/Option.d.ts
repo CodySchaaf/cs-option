@@ -1,7 +1,7 @@
 export declare type LodashMatches<T> = ((item: T) => boolean) | ({
     [K in keyof T]?: T[K];
 });
-export declare class Option<T> {
+export default class Option<T> {
     private readonly _present;
     private readonly _value;
     /**

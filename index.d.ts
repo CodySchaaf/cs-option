@@ -3,4 +3,6 @@
  * @description
  * Entry point for all public APIs of the core package.
  */
-export {Option} from './src/Option';
+import {Option} from './src/Option';
+
+export default Option;

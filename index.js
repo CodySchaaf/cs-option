@@ -1,1 +1,2 @@
-export Option from './src/Option';
+import {Option} from './src/Option';
+export default Option;
