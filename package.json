@@ -11,7 +11,7 @@
     "version:major": "npm --no-git-tag-version version major",
     "version:minor": "npm --no-git-tag-version version minor",
     "version:patch": "npm --no-git-tag-version version patch",
-    "postversion": "git commit package.json CHANGELOG.md -m \"v$npm_package_version\" && npm run tag && git push && git push --tags",
+    "postversion": "git commit package.json package-lock.json CHANGELOG.md -m \"v$npm_package_version\" && npm run tag && git push && git push --tags",
     "preversion": "npm run lint && npm run check-changelog && npm run check-only-changelog-changed",
     "tag": "git tag v$npm_package_version"
   },
