@@ -1,3 +1,7 @@
+# 2.0.1
+
+- Remove jsdoc since it isn't used  
+
 # 2.0.0
 
 - Updating project structure for easier es6 imports 
