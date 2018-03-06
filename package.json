@@ -4,21 +4,41 @@
   "description": "TypeScript Option Implementation",
   "scripts": {
     "build": "tsc",
-    "lint": "tslint ./src/**/*.ts -t verbose"
+    "lint": "tslint --project tsconfig.json ./src/**/*.ts -t verbose",
+    "prepare": "in-publish && safe-publish-latest && npm run build || not-in-publish",
+    "check-changelog": "expr $(git status --porcelain 2>/dev/null| grep \"^\\s*M.*CHANGELOG.md\" | wc -l) >/dev/null || (echo 'Please edit CHANGELOG.md' && exit 1)",
+    "check-only-changelog-changed": "(expr $(git status --porcelain 2>/dev/null| grep -v \"CHANGELOG.md\" | wc -l) >/dev/null && echo 'Only CHANGELOG.md may have uncommitted changes' && exit 1) || exit 0",
+    "version:major": "npm --no-git-tag-version version major",
+    "version:minor": "npm --no-git-tag-version version minor",
+    "version:patch": "npm --no-git-tag-version version patch",
+    "postversion": "git commit package.json CHANGELOG.md -m \"v$npm_package_version\" && npm run tag && git push && git push --tags",
+    "preversion": "npm run lint && npm run check-changelog && npm run check-only-changelog-changed",
+    "tag": "git tag v$npm_package_version"
   },
   "keywords": [
     "option",
     "optional",
     "typescript"
   ],
-  "author": "",
+  "author": "Cody Schaaf",
   "license": "MIT",
   "devDependencies": {
-    "typescript": "~2.3.2",
-    "tslint": "^3.15.1"
+    "typescript": "^2.7.2",
+    "tslint": "^5.9.1",
+    "in-publish": "^2.0.0",
+    "safe-publish-latest": "^1.1.1"
   },
-  "main": "src/Option.js",
-  "typings": "index.d.ts",
-  "module": "index.js",
-  "repository": {}
+  "main": "./dist/option.js",
+  "types": "./dist/option.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodySchaaf/cs-options.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CodySchaaf/cs-options/issues"
+  },
+  "dependencies": {
+    "jsdoc": "^3.4.3"
+  },
+  "homepage": "https://github.com/CodySchaaf/cs-options#readme"
 }

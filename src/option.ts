@@ -1,4 +1,5 @@
-import {LodashMatches} from './LodashMatches';
+/* tslint:disable:no-non-null-assertion */
+import {LodashMatches} from './lodash-matches';
 
 class TypeGuards {
   static isFn(fn: any): fn is Function {
@@ -10,7 +11,7 @@ class TypeGuards {
   }
 }
 
-class Option<T> {
+export class Option<T> {
   /**
    * All calls to absent now return the same None object
    * this prevents an infinite digest when comparing none to none
@@ -25,23 +26,23 @@ class Option<T> {
     return possiblyUndefinedOrNullValue == null;
   }
 
-  static fromNullable<T>(possiblyUndefinedOrNullValue: T|undefined): Option<T> {
+  static fromNullable<T>(possiblyUndefinedOrNullValue: T|undefined|null): Option<T> {
     if (possiblyUndefinedOrNullValue == null) {
       return Option.absent<T>();
     }
-    return Option.of<T>(possiblyUndefinedOrNullValue);
+    return Option.of<T>(possiblyUndefinedOrNullValue!);
   }
 
   static of<T>(value: T): Option<T> {
     if (value == null) {
-      throw 'Cannot call of() on a nullable. Use fromNullable instead';
+      throw new Error('Cannot call of() on a nullable. Use fromNullable instead');
     }
     return new Option<T>(true, value);
   }
 
   static find<T>(arr: T[], fnOrMatch?: LodashMatches<T>): Option<T> {
     /* tslint:disable:no-var-keyword */
-    var _: any = <any>_ || undefined;
+    const _: any = (<any>window)._ || undefined;
     /* tslin:enable:no-var-keyword */
     if (typeof _ !== 'undefined' && _.find) {
       return Option.fromNullable(_.find(arr, fnOrMatch) as T);
@@ -49,7 +50,7 @@ class Option<T> {
       if (TypeGuards.isFn(fnOrMatch)) {
         return Option.fromNullable(arr.find(fnOrMatch));
       } else {
-        throw 'Install lodash to use find without a function';
+        throw new Error('Install lodash to use find without a function');
       }
     }
   }
@@ -66,7 +67,7 @@ class Option<T> {
     return this.None as Option<T>;
   }
 
-  private constructor(private readonly _present = false, private readonly _value: T|undefined = undefined) {
+  private constructor(private readonly _present = false, private readonly _value?: T|undefined|null) {
     this._absent = !this._present;
   }
 
@@ -80,7 +81,7 @@ class Option<T> {
 
   get(): T {
     if (this._absent) {
-      throw 'Option is absent';
+      throw new Error('Option is absent');
     }
     return this._value!;
   }
@@ -205,7 +206,7 @@ class Option<T> {
       if (newValue instanceof Option) {
         return newValue;
       } else {
-        throw 'flatMap must produce an option';
+        throw new Error('flatMap must produce an option');
       }
     }
     return Option.absent<V>();
@@ -218,5 +219,3 @@ class Option<T> {
     return q.resolve(Option.absent<V>());
   }
 }
-
-export = Option;
