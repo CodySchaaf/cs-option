@@ -1,3 +1,7 @@
+# 2.0.2
+
+- Allows lib file to be published to npm
+
 # 2.0.1
 
 - Remove jsdoc since it isn't used  
