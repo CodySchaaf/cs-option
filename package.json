@@ -37,8 +37,6 @@
   "bugs": {
     "url": "https://github.com/CodySchaaf/cs-options/issues"
   },
-  "dependencies": {
-    "jsdoc": "^3.4.3"
-  },
+  "dependencies": {},
   "homepage": "https://github.com/CodySchaaf/cs-options#readme"
 }
