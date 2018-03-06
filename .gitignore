@@ -1,11 +1,3 @@
-.idea
-node_modules
-jspm_packages
-npm-debug.log
-debug.log
-src/**/*.js
-!src/systemjs.config.extras.js
-!src/systemjs.config.js
-_temp
-app
-dist
+.idea/
+node_modules/
+dist/
